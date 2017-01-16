@@ -11,23 +11,28 @@ def generate_data():
     ys = []
     for i in range(1000):
         xs.append(i)
-        ys.append(random.randint(0, 1000))
+        ys.append(random.randint(0, 100))
     return xs, ys
 
 
 def make_scatter_plot(xs, ys):
     fig, ax = plt.subplots()
-    ax.plot(xs, ys, 'b', alpha=.8)
+    ax.plot(xs, ys, 'bo', alpha=.8)
     ax.set_ylim([0, 100])
     mpld3.save_html(fig, 'scatter.html')
 
 
 def make_histogram(xs, ys):
-    pass
+    fig, ax = plt.subplots()
+    ax.hist(ys)
+    mpld3.save_html(fig, 'histogram.html')
 
 
 def make_line_plot(xs, ys):
-    pass
+    fig, ax = plt.subplots()
+    ax.plot(xs, ys, 'g-', alpha=.8)
+    ax.set_ylim([0, 100])
+    mpld3.save_html(fig, 'line_plot.html')
 
 
 def main():
